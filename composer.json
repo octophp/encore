@@ -1,0 +1,35 @@
+{
+    "name": "octo/encore",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Octo\\Encore\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kemal Yenilmez",
+            "email": "kemalyen@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "vlucas/phpdotenv": "5.4.x-dev",
+        "league/route": "6.x-dev",
+        "php-di/php-di": "dev-master",
+        "laminas/laminas-diactoros": "2.18.x-dev",
+        "laminas/laminas-httphandlerrunner": "2.3.x-dev",
+        "nyholm/psr7-server": "dev-master",
+        "psr/http-client": "1.0.x-dev",
+        "psr/http-message": "1.0.x-dev",
+        "nyholm/psr7": "^1.5",
+        "doctrine/annotations": "1.14.x-dev",
+        "mezzio/mezzio-helpers": "5.10.x-dev",
+        "monolog/monolog": "3.x-dev",
+        "doctrine/orm": "^2.9",
+        "symfony/cache": "6.2.x-dev",
+        "league/fractal": "*",
+        "rbdwllr/psr-jwt": "dev-master"
+    }
+}
