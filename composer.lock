@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74b1a4ad783ad1fe8c6ebc0b48a7379f",
+    "content-hash": "41fdbea9649c36d98c9d46820eecea71",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -356,12 +356,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "be88f8c36c3865bbecccbe95a562f8cf82b6f48f"
+                "reference": "1ebda1ca5c5184748b2fc8ba7b6966b5ea047510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/be88f8c36c3865bbecccbe95a562f8cf82b6f48f",
-                "reference": "be88f8c36c3865bbecccbe95a562f8cf82b6f48f",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/1ebda1ca5c5184748b2fc8ba7b6966b5ea047510",
+                "reference": "1ebda1ca5c5184748b2fc8ba7b6966b5ea047510",
                 "shasum": ""
             },
             "require": {
@@ -459,7 +459,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-04T21:39:21+00:00"
+            "time": "2022-10-07T18:36:58+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -838,12 +838,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "95c818928e14c29fdf3519e31c6a91ec40871ffc"
+                "reference": "0e65b0c3dc1a3e8a77a6178a424fbf765e5db3e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/95c818928e14c29fdf3519e31c6a91ec40871ffc",
-                "reference": "95c818928e14c29fdf3519e31c6a91ec40871ffc",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/0e65b0c3dc1a3e8a77a6178a424fbf765e5db3e8",
+                "reference": "0e65b0c3dc1a3e8a77a6178a424fbf765e5db3e8",
                 "shasum": ""
             },
             "require": {
@@ -930,7 +930,7 @@
                 "issues": "https://github.com/doctrine/orm/issues",
                 "source": "https://github.com/doctrine/orm/tree/2.14.x"
             },
-            "time": "2022-10-05T11:37:57+00:00"
+            "time": "2022-10-07T06:52:39+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -1798,6 +1798,67 @@
                 }
             ],
             "time": "2022-08-20T13:21:44+00:00"
+        },
+        {
+            "name": "neomerx/cors-psr7",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neomerx/cors-psr7.git",
+                "reference": "1f0f504384b891f6b2c3877d9f4372e9972eda22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neomerx/cors-psr7/zipball/1f0f504384b891f6b2c3877d9f4372e9972eda22",
+                "reference": "1f0f504384b891f6b2c3877d9f4372e9972eda22",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0",
+                "psr/http-message": "^1.0",
+                "psr/log": "^3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.11",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^9.2",
+                "scrutinizer/ocular": "^1.4",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neomerx\\Cors\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "neomerx",
+                    "email": "info@neomerx.com"
+                }
+            ],
+            "description": "Framework agnostic (PSR-7) CORS implementation (www.w3.org/TR/cors/)",
+            "homepage": "https://github.com/neomerx/cors-psr7",
+            "keywords": [
+                "Cross Origin Resource Sharing",
+                "Cross-Origin Resource Sharing",
+                "cors",
+                "neomerx",
+                "psr-7",
+                "psr7",
+                "w3.org",
+                "www.w3.org"
+            ],
+            "support": {
+                "issues": "https://github.com/neomerx/cors-psr7/issues",
+                "source": "https://github.com/neomerx/cors-psr7/tree/develop"
+            },
+            "time": "2022-10-05T13:36:51+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -3152,12 +3213,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "41e1c746d1710786893d4c4ee9d42526832a501f"
+                "reference": "cd59a4ed35a6627a84a40807f340c32b7975efcc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/41e1c746d1710786893d4c4ee9d42526832a501f",
-                "reference": "41e1c746d1710786893d4c4ee9d42526832a501f",
+                "url": "https://api.github.com/repos/symfony/console/zipball/cd59a4ed35a6627a84a40807f340c32b7975efcc",
+                "reference": "cd59a4ed35a6627a84a40807f340c32b7975efcc",
                 "shasum": ""
             },
             "require": {
@@ -3240,7 +3301,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-05T15:44:41+00:00"
+            "time": "2022-10-07T08:04:14+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3894,12 +3955,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "1b4304df29db8cc8400250293747e5f3f7177e51"
+                "reference": "b1f92c285463e1ae7d06dd46f28545c04a0c02ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/1b4304df29db8cc8400250293747e5f3f7177e51",
-                "reference": "1b4304df29db8cc8400250293747e5f3f7177e51",
+                "url": "https://api.github.com/repos/symfony/string/zipball/b1f92c285463e1ae7d06dd46f28545c04a0c02ad",
+                "reference": "b1f92c285463e1ae7d06dd46f28545c04a0c02ad",
                 "shasum": ""
             },
             "require": {
@@ -3972,7 +4033,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-09-21T18:43:34+00:00"
+            "time": "2022-10-07T08:04:14+00:00"
         },
         {
             "name": "symfony/var-exporter",
@@ -4204,7 +4265,8 @@
         "mezzio/mezzio-helpers": 20,
         "monolog/monolog": 20,
         "symfony/cache": 20,
-        "rbdwllr/psr-jwt": 20
+        "rbdwllr/psr-jwt": 20,
+        "neomerx/cors-psr7": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

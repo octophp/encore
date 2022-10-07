@@ -30,6 +30,7 @@
         "doctrine/orm": "^2.9",
         "symfony/cache": "6.2.x-dev",
         "league/fractal": "*",
-        "rbdwllr/psr-jwt": "dev-master"
+        "rbdwllr/psr-jwt": "dev-master",
+        "neomerx/cors-psr7": "dev-develop"
     }
 }

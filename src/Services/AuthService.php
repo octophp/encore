@@ -15,6 +15,12 @@ class AuthService
 
     /**
      * @Inject
+     * @var Psr\Log\LoggerInterface
+     */
+    public $logger;
+
+    /**
+     * @Inject
      * @var Octo\Encore\Repositories\AuthRepository
      */
     private $userRepository;
@@ -44,32 +50,30 @@ class AuthService
     public function handleLogin(string $email, string $password)
     {
         $user = $this->userRepository->findByEmail($email);
-        if ($user->getPassword() != $password){
-            return false;
+        
+        $user_password = $user->getPassword();
+        
+        if(password_verify($password, $user_password)) {
+            $userId = $user->getId();
+            $accessSecret = $this->container->get('JWT_SECRET');
+            $refreshSecret = $this->container->get('JWT_REFRESH_SECRET');
+            $accessTokenexpiration = time() + 10;
+            $refreshTokenexpiration = time() + 360;
+            $issuer = 'localhost';
+
+            $user = $this->userRepository->find($userId);
+            // return token
+            $accessToken  = Token::create($userId, $accessSecret, $accessTokenexpiration, $issuer);
+            // refresh token
+            $refreshToken  = Token::create($userId, $refreshSecret, $refreshTokenexpiration, $issuer);
+
+            $expires_at =  time() + (86400 * 30);
+            setcookie('jwt',$refreshToken,$expires_at, '/', '', true, true);
+            
+            $user->setToken($refreshToken);
+            $this->userRepository->updateUser($user);
+            return $accessToken;
         }
-        $userId = $user->getId();
-        $accessSecret = $this->container->get('JWT_SECRET');
-        $refreshSecret = $this->container->get('JWT_REFRESH_SECRET');
-        $accessTokenexpiration = time() + 10;
-        $refreshTokenexpiration = time() + 360;
-        $issuer = 'localhost';
-
-        $user = $this->userRepository->find($userId);
-        // return token
-        $accessToken  = Token::create($userId, $accessSecret, $accessTokenexpiration, $issuer);
-
-        $refreshToken  = Token::create($userId, $refreshSecret, $refreshTokenexpiration, $issuer);
-
-        $expires_at =  time() + (86400 * 30);
-        setcookie('jwt',$refreshToken,$expires_at, '/', '', true, true);
-        
-        $user->setToken($refreshToken);
-        $this->userRepository->updateUser($user);
-        return $accessToken;
     }
 
-    public function verifyUser(User $user)
-    {
-        
-    }
 }
