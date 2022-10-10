@@ -1,6 +1,6 @@
 <?php
 
-namespace Octo\Encore\Controllers;
+namespace Octophp\Encore\Controllers;
 
 use Laminas\Diactoros\Response\JsonResponse;
 

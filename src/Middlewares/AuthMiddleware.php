@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Octo\Encore\Middlewares;
+namespace Octophp\Encore\Middlewares;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

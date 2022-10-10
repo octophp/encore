@@ -1,6 +1,6 @@
 <?php
 
-namespace Octo\Encore;
+namespace Octophp\Encore;
 
 use Laminas\Diactoros\ResponseFactory;
 use League\Route\Strategy\JsonStrategy;

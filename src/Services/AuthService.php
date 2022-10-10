@@ -1,6 +1,6 @@
 <?php
 
-namespace Octo\Encore\Services;
+namespace Octophp\Encore\Services;
 
 use ReallySimpleJWT\Token;
 use App\Entities\User;
@@ -21,7 +21,7 @@ class AuthService
 
     /**
      * @Inject
-     * @var Octo\Encore\Repositories\AuthRepository
+     * @var Octophp\Encore\Repositories\AuthRepository
      */
     private $userRepository;
 

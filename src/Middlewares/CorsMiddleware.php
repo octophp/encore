@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Octo\Encore\Middlewares;
+namespace Octophp\Encore\Middlewares;
 
 use Neomerx\Cors\Analyzer;
 use Neomerx\Cors\Contracts\AnalysisResultInterface;

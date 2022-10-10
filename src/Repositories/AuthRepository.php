@@ -1,6 +1,6 @@
 <?php
 
-namespace Octo\Encore\Repositories;
+namespace Octophp\Encore\Repositories;
 
 use App\Entities\User;
 use Doctrine\ORM\EntityManager;
