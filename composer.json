@@ -1,10 +1,10 @@
 {
-    "name": "octo/encore",
+    "name": "octophp/encore",
     "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Octo\\Encore\\": "src/"
+            "Octophp\\Encore\\": "src/"
         }
     },
     "authors": [
