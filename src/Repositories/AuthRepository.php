@@ -4,16 +4,20 @@ namespace Octophp\Encore\Repositories;
 
 use App\Entities\User;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\EntityRepository; 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use DI\Attribute\Inject;
 use Exception;
 
-class AuthRepository 
+class AuthRepository extends EntityRepository
 {
   /**
      * @var EntityRepository
      */
     private $repository;
+
+    private $em;
+
 
     public function __construct(EntityManager $entityManager)
     {
@@ -21,11 +25,11 @@ class AuthRepository
         $this->em = $entityManager;
     }
 
-    public function find(int $id): ?User
+    public function findById(int $id)
     {
         return $this->repository->find($id);
-    }
-
+    }  
+ 
     public function findAll()
     {
         return $this->repository->findBy(array());

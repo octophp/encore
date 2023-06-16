@@ -12,7 +12,7 @@ use Psr\Log\LoggerInterface;
 
 class Application
 {
-    const VERSION = '0.1';
+    const VERSION = '0.2.0';
     
     public $router;
     protected $response;

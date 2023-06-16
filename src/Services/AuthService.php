@@ -4,6 +4,10 @@ namespace Octophp\Encore\Services;
 
 use ReallySimpleJWT\Token;
 use App\Entities\User;
+use DI\Attribute\Inject;
+use Octophp\Encore\Repositories\AuthRepository;
+use Psr\Container\ContainerInterface;
+use Psr\Log\LoggerInterface;
 
 class AuthService
 {
@@ -11,18 +15,21 @@ class AuthService
      * @Inject
      * @var Psr\Container\ContainerInterface
      */
+    #[Inject(ContainerInterface::class)]
     public $container;  
 
     /**
      * @Inject
      * @var Psr\Log\LoggerInterface
      */
+    #[Inject(LoggerInterface::class)]
     public $logger;
 
     /**
      * @Inject
      * @var Octophp\Encore\Repositories\AuthRepository
      */
+    #[Inject(AuthRepository::class)]
     private $userRepository;
 
     public function verifyJwt(User $foundUser, string $token)
@@ -47,10 +54,12 @@ class AuthService
         return $this->userRepository->findByToken($token);
     }
 
-    public function handleLogin(string $email, string $password)
+    public function handleLogin(string $email, string $password): bool|string
     {
         $user = $this->userRepository->findByEmail($email);
-        
+
+        if (!$user) return false;
+
         $user_password = $user->getPassword();
         
         if(password_verify($password, $user_password)) {
@@ -60,8 +69,8 @@ class AuthService
             $accessTokenexpiration = time() + 10;
             $refreshTokenexpiration = time() + 360;
             $issuer = 'localhost';
-
-            $user = $this->userRepository->find($userId);
+            
+            $user = $this->userRepository->findById($userId);
             // return token
             $accessToken  = Token::create($userId, $accessSecret, $accessTokenexpiration, $issuer);
             // refresh token
@@ -74,6 +83,7 @@ class AuthService
             $this->userRepository->updateUser($user);
             return $accessToken;
         }
+        return false;
     }
 
 }
