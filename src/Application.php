@@ -3,11 +3,12 @@
 namespace Octophp\Encore;
 
 use Laminas\Diactoros\ResponseFactory;
-use League\Route\Strategy\JsonStrategy;
+
 use Psr\Container\ContainerInterface;
 use League\Route\Router;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Nyholm\Psr7Server\ServerRequestCreator;
+use Octophp\Encore\Route\Strategy\JsonStrategy;
 use Psr\Log\LoggerInterface;
 
 class Application
