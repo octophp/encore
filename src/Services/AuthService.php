@@ -16,7 +16,7 @@ class AuthService
      * @var Psr\Container\ContainerInterface
      */
     #[Inject(ContainerInterface::class)]
-    public $container;  
+    public $container;
 
     /**
      * @Inject
@@ -37,9 +37,9 @@ class AuthService
         $accessSecret = $this->container->get('JWT_SECRET');
         $refreshSecret = $this->container->get('JWT_REFRESH_SECRET');
         $is_validated = Token::validate($token, $refreshSecret);
-        if ($is_validated){
+        if ($is_validated) {
             $payload = Token::getPayload($token, $refreshSecret);
-            if (!empty($payload) && isset($payload['user_id']) && $payload['user_id'] == $foundUser->getId()){
+            if (!empty($payload) && isset($payload['user_id']) && $payload['user_id'] == $foundUser->getId()) {
                 $expiration = time() + 360;
                 $issuer = 'localhost';
                 $accessToken  = Token::create($foundUser->getId(), $accessSecret, $expiration, $issuer);
@@ -54,6 +54,15 @@ class AuthService
         return $this->userRepository->findByToken($token);
     }
 
+    public function generateToken(string $account_code)
+    {
+        $accessSecret = $this->container->get('JWT_SECRET');
+        $accessTokenexpiration = time() + 10;
+        $issuer = 'localhost';
+        $accessToken  = Token::create($account_code, $accessSecret, $accessTokenexpiration, $issuer);
+        return $accessToken;
+    }
+
     public function handleLogin(string $email, string $password): bool|string
     {
         $user = $this->userRepository->findByEmail($email);
@@ -61,15 +70,15 @@ class AuthService
         if (!$user) return false;
 
         $user_password = $user->getPassword();
-        
-        if(password_verify($password, $user_password)) {
+
+        if (password_verify($password, $user_password)) {
             $userId = $user->getId();
             $accessSecret = $this->container->get('JWT_SECRET');
             $refreshSecret = $this->container->get('JWT_REFRESH_SECRET');
             $accessTokenexpiration = time() + 10;
             $refreshTokenexpiration = time() + 360;
             $issuer = 'localhost';
-            
+
             $user = $this->userRepository->findById($userId);
             // return token
             $accessToken  = Token::create($userId, $accessSecret, $accessTokenexpiration, $issuer);
@@ -77,13 +86,12 @@ class AuthService
             $refreshToken  = Token::create($userId, $refreshSecret, $refreshTokenexpiration, $issuer);
 
             $expires_at =  time() + (86400 * 30);
-            setcookie('jwt',$refreshToken,$expires_at, '/', '', true, true);
-            
+            setcookie('jwt', $refreshToken, $expires_at, '/', '', true, true);
+
             $user->setToken($refreshToken);
             $this->userRepository->updateUser($user);
             return $accessToken;
         }
         return false;
     }
-
 }
