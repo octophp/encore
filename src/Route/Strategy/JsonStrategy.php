@@ -88,13 +88,14 @@ class JsonStrategy extends AbstractStrategy implements StrategyInterface, Contai
                         return $exception->buildJsonResponse($response);
                     }
 
+                    $code = 500; // $exception->getCode() ?: 500;
                     $response->getBody()->write(json_encode([
-                        'status_code'   => $exception->getCode(),
+                        'status_code'   => $code,
                         'message' => $exception->getMessage()
                     ]));
 
                     $response = $response->withAddedHeader('content-type', 'application/json');
-                    return $response->withStatus($exception->getCode(), strtok($exception->getMessage(), "\n"));
+                    return $response->withStatus($code, strtok($exception->getMessage(), "\n"));
                 }
             }
         };
